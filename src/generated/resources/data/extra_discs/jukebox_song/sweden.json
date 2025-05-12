@@ -1,6 +1,8 @@
 {
   "comparator_output": 2,
-  "description": "extra_discs:sweden",
+  "description": {
+    "translate": "item.extra_discs.overworld_music_disc_sweden.desc"
+  },
   "length_in_seconds": 215.0,
   "sound_event": "extra_discs:sweden"
 }

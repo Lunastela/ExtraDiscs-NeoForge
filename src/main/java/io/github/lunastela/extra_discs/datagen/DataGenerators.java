@@ -56,6 +56,11 @@ public class DataGenerators {
                 for (DiscType discType : DiscType.values())
                     add("item." + ExtraDiscs.MODID + "." + discType.label + ".name", discType.englishLiteral);
                 add("item." + ExtraDiscs.MODID + ".oreo", "Oreo");
+
+                for (int i = 0; i < ExtraDiscs.typedRecordHolderList.size(); i++) {
+                    TypedRecordHolder recordHolder = ExtraDiscs.typedRecordHolderList.get(i);
+                    add("item." + ExtraDiscs.MODID + "." + recordHolder.getDiscID() + ".desc", recordHolder.englishLiteral());
+                }
             }
         });
 
@@ -79,7 +84,7 @@ public class DataGenerators {
                     ExtraDiscs.createSong(recordHolder.discName()),
                     new JukeboxSong(
                         recordHolder.soundHolder().getDelegate(),
-                        Component.translationArg(ResourceLocation.fromNamespaceAndPath(ExtraDiscs.MODID, recordHolder.discName())),
+                        Component.translatable("item." + ExtraDiscs.MODID + "." + recordHolder.getDiscID() + ".desc"),
                         recordHolder.lengthInSeconds(),
                         recordHolder.comparatorOutput()
                     )

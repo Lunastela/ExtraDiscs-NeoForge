@@ -16,7 +16,8 @@ public record TypedRecordHolder(
     float lengthInSeconds,
     @Nullable String appender,
     DeferredItem<Item> registryObject,
-    DeferredHolder<SoundEvent, SoundEvent> soundHolder
+    DeferredHolder<SoundEvent, SoundEvent> soundHolder,
+    String englishLiteral
 ) {
     public String getDiscID() {
         return ExtraDiscs.getDiscID(this.discType, this.discName);

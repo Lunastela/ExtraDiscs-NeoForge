@@ -1,6 +1,8 @@
 {
   "comparator_output": 3,
-  "description": "extra_discs:aria_math",
+  "description": {
+    "translate": "item.extra_discs.creative_music_disc_aria_math.desc"
+  },
   "length_in_seconds": 309.0,
   "sound_event": "extra_discs:aria_math"
 }

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
+import javax.annotation.Nullable;
+
 import org.slf4j.Logger;
 
 import com.mojang.datafixers.Typed;
@@ -58,7 +60,7 @@ public class ExtraDiscs
         return SOUND_REGISTRY.register(name, () -> SoundEvent.createVariableRangeEvent(id));
     }
 
-    public static DeferredItem<Item> registerDisc(DiscType discType, String discName, int comparatorStrength, float lengthInSeconds) {
+    public static DeferredItem<Item> registerDisc(DiscType discType, String discName, int comparatorStrength, float lengthInSeconds, String englishLiteral, @Nullable String appender) {
         DeferredHolder<SoundEvent, SoundEvent> soundEvent = registerSoundEvent(discName);
         DeferredItem<Item> discItem = ITEM_REGISTRY.register(
             getDiscID(discType, discName), 
@@ -77,27 +79,35 @@ public class ExtraDiscs
 
         TypedRecordHolder recordHolder = new TypedRecordHolder(
             discType, discName, comparatorStrength, 
-            lengthInSeconds, null, discItem, 
-            soundEvent
+            lengthInSeconds, appender, discItem, 
+            soundEvent, englishLiteral
         );
         typedRecordHolderList.add(recordHolder);
         return discItem;
     }
 
+    public static DeferredItem<Item> registerDisc(DiscType discType, String discName, int comparatorStrength, float lengthInSeconds, String englishLiteral) {
+        return registerDisc(discType, discName, comparatorStrength, lengthInSeconds, englishLiteral, null);
+    }
+
     /*
      * Disc Collection
      */
-    public static final DeferredItem<Item> MINECRAFT = registerDisc(DiscType.OVERWORLD_DISC, "minecraft", 0, 254);
-    public static final DeferredItem<Item> CLARK = registerDisc(DiscType.OVERWORLD_DISC, "clark", 1, 191);
-    public static final DeferredItem<Item> SWEDEN = registerDisc(DiscType.OVERWORLD_DISC, "sweden", 2, 215);
+    public static final DeferredItem<Item> MINECRAFT = registerDisc(DiscType.OVERWORLD_DISC, "minecraft", 0, 254, "C418 - Minecraft");
+    public static final DeferredItem<Item> CLARK = registerDisc(DiscType.OVERWORLD_DISC, "clark", 1, 191, "C418 - Clark");
+    public static final DeferredItem<Item> SWEDEN = registerDisc(DiscType.OVERWORLD_DISC, "sweden", 2, 215, "C418 - Sweden");
 
-    public static final DeferredItem<Item> BIOME_FEST = registerDisc(DiscType.CREATIVE_DISC, "biome_fest", 0, 377);
-    public static final DeferredItem<Item> BLIND_SPOTS = registerDisc(DiscType.CREATIVE_DISC, "blind_spots", 1, 331);
-    public static final DeferredItem<Item> HAUNT_MUSKIE = registerDisc(DiscType.CREATIVE_DISC, "haunt_muskie", 2, 360);
-    public static final DeferredItem<Item> ARIA_MATH = registerDisc(DiscType.CREATIVE_DISC, "aria_math", 3, 309);
-    public static final DeferredItem<Item> DREITON = registerDisc(DiscType.CREATIVE_DISC, "dreiton", 4, 496);
-    public static final DeferredItem<Item> TASWELL = registerDisc(DiscType.CREATIVE_DISC, "taswell", 5, 514);
+    public static final DeferredItem<Item> BIOME_FEST = registerDisc(DiscType.CREATIVE_DISC, "biome_fest", 0, 377, "C418 - Biome Fest");
+    public static final DeferredItem<Item> BLIND_SPOTS = registerDisc(DiscType.CREATIVE_DISC, "blind_spots", 1, 331, "C418 - Blind Spots");
+    public static final DeferredItem<Item> HAUNT_MUSKIE = registerDisc(DiscType.CREATIVE_DISC, "haunt_muskie", 2, 360, "C418 - Haunt Muskie");
+    public static final DeferredItem<Item> ARIA_MATH = registerDisc(DiscType.CREATIVE_DISC, "aria_math", 3, 309, "C418 - Aria Math");
+    public static final DeferredItem<Item> DREITON = registerDisc(DiscType.CREATIVE_DISC, "dreiton", 4, 496, "C418 - Dreiton");
+    public static final DeferredItem<Item> TASWELL = registerDisc(DiscType.CREATIVE_DISC, "taswell", 5, 514, "C418 - Taswell");
 
+    public static final DeferredItem<Item> SUBWOOFER_LULLABY = registerDisc(DiscType.OVERWORLD_DISC, "subwoofer_lullaby", 0, 208, "C418 - Subwoofer Lullaby");
+    public static final DeferredItem<Item> LIVING_MICE = registerDisc(DiscType.OVERWORLD_DISC, "living_mice", 1, 177, "C418 - Living Mice");
+    public static final DeferredItem<Item> HAGGSTROM = registerDisc(DiscType.OVERWORLD_DISC, "haggstrom", 2, 204, "C418 - Haggstrom");
+    public static final DeferredItem<Item> DANNY = registerDisc(DiscType.OVERWORLD_DISC, "danny", 3, 254, "C418 - Danny");
 
     public static final DeferredItem<Item> OREO = ITEM_REGISTRY.register("oreo", 
         () -> new Item(

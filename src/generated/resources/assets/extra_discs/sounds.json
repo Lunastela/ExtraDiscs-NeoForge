@@ -31,10 +31,26 @@
       }
     ]
   },
+  "danny": {
+    "sounds": [
+      {
+        "name": "music/game/danny",
+        "stream": true
+      }
+    ]
+  },
   "dreiton": {
     "sounds": [
       {
         "name": "music/game/creative/dreiton",
+        "stream": true
+      }
+    ]
+  },
+  "haggstrom": {
+    "sounds": [
+      {
+        "name": "music/game/haggstrom",
         "stream": true
       }
     ]
@@ -47,10 +63,26 @@
       }
     ]
   },
+  "living_mice": {
+    "sounds": [
+      {
+        "name": "music/game/living_mice",
+        "stream": true
+      }
+    ]
+  },
   "minecraft": {
     "sounds": [
       {
         "name": "music/game/minecraft",
+        "stream": true
+      }
+    ]
+  },
+  "subwoofer_lullaby": {
+    "sounds": [
+      {
+        "name": "music/game/subwoofer_lullaby",
         "stream": true
       }
     ]

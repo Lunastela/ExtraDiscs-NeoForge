@@ -1,4 +1,4 @@
-// 1.21.1	2025-05-10T23:29:43.8899938	Item Models: extra_discs
+// 1.21.1	2025-05-11T16:57:57.1476932	Item Models: extra_discs
 20c06f26772e5823cbac972c14c0263822bd03d5 assets/extra_discs/models/item/creative_music_disc_aria_math.json
 424dd6312e5c373e83e62b0b40fb2960ab0fc54d assets/extra_discs/models/item/creative_music_disc_biome_fest.json
 770b443ca88e70c8c387500894c9981083bf742d assets/extra_discs/models/item/creative_music_disc_blind_spots.json
@@ -7,5 +7,9 @@ fe7a721c641ed30e305b9417e7e896c0c1812178 assets/extra_discs/models/item/creative
 3b5c2b43ad73365abe4cc9831543e9ff5842f4ec assets/extra_discs/models/item/creative_music_disc_taswell.json
 8f5c4844c22a16a086c4221b5adc0d61e50636d1 assets/extra_discs/models/item/oreo.json
 9cd64f3e1e6cb174b7dddad9f05158ff0c7b05d0 assets/extra_discs/models/item/overworld_music_disc_clark.json
+47415044b3a0b8ef392768551a6f39f00dac7c9d assets/extra_discs/models/item/overworld_music_disc_danny.json
+b8573cb822eaddf4dab80d652264090da2f9a5ee assets/extra_discs/models/item/overworld_music_disc_haggstrom.json
+02af89fc16852cf1f2a00d0df56d17a149d47e5e assets/extra_discs/models/item/overworld_music_disc_living_mice.json
 8d27e5be99b8c95c9f981aea69d4cdaa6b910bd2 assets/extra_discs/models/item/overworld_music_disc_minecraft.json
+1aa54228b7158f6836452a5066dd1685d2bf76dc assets/extra_discs/models/item/overworld_music_disc_subwoofer_lullaby.json
 6bf5ef7b66cfaebe7afd113b0ab212d8e66d6076 assets/extra_discs/models/item/overworld_music_disc_sweden.json

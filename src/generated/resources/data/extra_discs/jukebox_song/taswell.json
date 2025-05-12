@@ -1,6 +1,8 @@
 {
   "comparator_output": 5,
-  "description": "extra_discs:taswell",
+  "description": {
+    "translate": "item.extra_discs.creative_music_disc_taswell.desc"
+  },
   "length_in_seconds": 514.0,
   "sound_event": "extra_discs:taswell"
 }

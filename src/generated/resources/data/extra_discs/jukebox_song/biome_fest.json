@@ -1,6 +1,8 @@
 {
   "comparator_output": 0,
-  "description": "extra_discs:biome_fest",
+  "description": {
+    "translate": "item.extra_discs.creative_music_disc_biome_fest.desc"
+  },
   "length_in_seconds": 377.0,
   "sound_event": "extra_discs:biome_fest"
 }
