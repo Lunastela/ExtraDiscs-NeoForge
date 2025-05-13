@@ -1,0 +1,4 @@
+// 1.21.1	2025-05-12T20:00:24.7156241	Tags for minecraft:item mod id extra_discs
+ba34fda8b909a224f26caf82084cd43cb8c6d8e0 data/c/tags/item/music_discs.json
+388cfd75672d94ce4bd45dc58708b541e71e9d95 data/extra_discs/tags/item/creative_music_disc_drop.json
+4138f61423623b5771851af0045e8459b661fb10 data/extra_discs/tags/item/overworld_music_disc_drop.json

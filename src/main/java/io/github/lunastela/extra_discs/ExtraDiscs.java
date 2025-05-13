@@ -12,9 +12,15 @@ import com.mojang.datafixers.Typed;
 import com.mojang.logging.LogUtils;
 
 import io.github.lunastela.extra_discs.datagen.TypedRecordHolder;
+import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
@@ -25,13 +31,29 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.JukeboxPlayable;
 import net.minecraft.world.item.JukeboxSong;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.entries.LootPoolEntry;
+import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
+import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
+import net.minecraft.world.level.storage.loot.entries.TagEntry;
+import net.minecraft.world.level.storage.loot.entries.NestedLootTable;
+import net.minecraft.world.level.storage.loot.functions.SetItemFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.common.loot.AddTableLootModifier;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.event.LootTableLoadEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -126,7 +148,11 @@ public class ExtraDiscs
         SOUND_REGISTRY.register(modEventBus);
         JUKEBOX_SONG_REGISTRY.register(modEventBus);
 
+        NeoForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreativeTab);
+
+        modContainer.registerConfig(ModConfig.Type.COMMON, ExtraDiscsConfig.SPEC);
+        modContainer.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
     }
 
     private void addCreativeTab(BuildCreativeModeTabContentsEvent event) {
@@ -136,5 +162,34 @@ public class ExtraDiscs
         }
         if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS)
             event.accept(OREO);
+    }
+
+    @SubscribeEvent
+    public void onLootTableLoad(LootTableLoadEvent event) {
+        String mobKey = event.getName().getPath();
+        @Nullable DiscType currentType = ExtraDiscsConfig.mobDropMap.get(mobKey);
+        if (currentType != null) {
+            LootPool.Builder poolExtension = LootPool.lootPool()
+                .name("extra_discs_injected")
+                .setRolls(ConstantValue.exactly(1))
+                .add(TagEntry.expandTag(currentType.itemTag))
+                .when(LootItemEntityPropertyCondition.hasProperties(
+                    LootContext.EntityTarget.ATTACKER, 
+                    EntityPredicate.Builder.entity().of(EntityType.SKELETON)
+                ));
+            event.getTable().addPool(poolExtension.build());
+        }
+
+        // 11 Special Rare Drop
+        if (ExtraDiscsConfig.discElevenDrop && mobKey.matches("entities/player")) {
+            LootPool.Builder poolExtension = LootPool.lootPool().setRolls(ConstantValue.exactly(1));
+            poolExtension.add(TagEntry.expandTag(ItemTags.create(ResourceLocation.fromNamespaceAndPath(ExtraDiscs.MODID, "music_disc_11_drop"))))
+                .when(LootItemEntityPropertyCondition.hasProperties(
+                    LootContext.EntityTarget.ATTACKER, 
+                    EntityPredicate.Builder.entity().of(EntityType.SKELETON)
+                ))
+                .when(LootItemRandomChanceCondition.randomChance((float) ExtraDiscsConfig.discElevenDropRate));
+            event.getTable().addPool(poolExtension.build());
+        }
     }
 }

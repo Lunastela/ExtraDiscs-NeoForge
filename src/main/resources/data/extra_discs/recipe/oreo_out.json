@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "food",
+	"pattern": [
+		"#",
+		"#"
+	],
+	"key": {
+		"#": "#c:music_discs"
+	},
+	"result": {
+		"item": "extra_discs:oreo",
+		"count": 1
+	},
+	"show_notification": true
+}
