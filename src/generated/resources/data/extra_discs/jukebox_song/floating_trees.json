@@ -1,0 +1,8 @@
+{
+  "comparator_output": 3,
+  "description": {
+    "translate": "item.extra_discs.menu_music_disc_floating_trees.desc"
+  },
+  "length_in_seconds": 244.0,
+  "sound_event": "extra_discs:floating_trees"
+}

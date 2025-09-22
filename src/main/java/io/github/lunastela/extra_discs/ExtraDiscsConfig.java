@@ -25,7 +25,7 @@ public class ExtraDiscsConfig {
         for (DiscType discType : DiscType.values()) {
             entityBuilderList.put(discType,
                 builder.comment("What mobs should drop " + discType.englishLiteral + "s.")
-                .translation("item." + ExtraDiscs.MODID + "." + discType.label + ".name")
+                .translation("item." + ExtraDiscs.MODID + "." + discType.label)
                 .defineListAllowEmpty(
                     discType.label + "_entities", List.of(discType.defaultMobDrop), 
                     () -> "", ExtraDiscsConfig::validateEntityName
@@ -42,11 +42,11 @@ public class ExtraDiscsConfig {
 
     private static final ModConfigSpec.BooleanValue DISC_11_DROP = BUILDER
         .comment("Whether players drop Disc 11 when dying to a Skeleton")
-        .define("discElevenDrop", true);
+        .define("disc_eleven_drop", true);
 
     private static final ModConfigSpec.DoubleValue DISC_11_DROP_CHANCE = BUILDER
         .comment("The percentage chance for Disc 11 to drop when being killed by a Skeleton")
-        .defineInRange("discElevenDropRate", 0.05, 0, 1);
+        .defineInRange("disc_eleven_drop_rate", 0.05, 0, 1);
 
     // private static final ModConfigSpec.BooleanValue OREO_ITEM_ENABLED = BUILDER
     //     .translation("item." + ExtraDiscs.MODID + ".oreo")

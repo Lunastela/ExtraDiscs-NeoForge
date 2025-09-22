@@ -1,0 +1,8 @@
+{
+  "comparator_output": 5,
+  "description": {
+    "translate": "item.extra_discs.underground_music_disc_one_more_day.desc"
+  },
+  "length_in_seconds": 278.0,
+  "sound_event": "extra_discs:one_more_day"
+}

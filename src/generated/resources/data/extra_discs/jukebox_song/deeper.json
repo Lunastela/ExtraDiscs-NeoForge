@@ -1,0 +1,8 @@
+{
+  "comparator_output": 6,
+  "description": {
+    "translate": "item.extra_discs.underground_music_disc_deeper.desc"
+  },
+  "length_in_seconds": 303.0,
+  "sound_event": "extra_discs:deeper"
+}

@@ -1,0 +1,8 @@
+{
+  "comparator_output": 1,
+  "description": {
+    "translate": "item.extra_discs.underwater_music_disc_dragon_fish.desc"
+  },
+  "length_in_seconds": 373.0,
+  "sound_event": "extra_discs:dragon_fish"
+}

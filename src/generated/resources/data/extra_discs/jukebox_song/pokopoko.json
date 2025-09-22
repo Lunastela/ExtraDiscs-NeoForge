@@ -1,0 +1,8 @@
+{
+  "comparator_output": 4,
+  "description": {
+    "translate": "item.extra_discs.underground_music_disc_pokopoko.desc"
+  },
+  "length_in_seconds": 304.0,
+  "sound_event": "extra_discs:pokopoko"
+}

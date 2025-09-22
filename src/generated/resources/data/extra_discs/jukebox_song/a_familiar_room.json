@@ -1,0 +1,8 @@
+{
+  "comparator_output": 1,
+  "description": {
+    "translate": "item.extra_discs.overworld_music_disc_a_familiar_room.desc"
+  },
+  "length_in_seconds": 241.0,
+  "sound_event": "extra_discs:a_familiar_room"
+}

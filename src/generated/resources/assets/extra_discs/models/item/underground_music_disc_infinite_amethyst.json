@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "extra_discs:item/underground_music_disc_infinite_amethyst"
+  }
+}

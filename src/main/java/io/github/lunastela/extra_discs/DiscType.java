@@ -11,7 +11,7 @@ public enum DiscType {
     CREATIVE_DISC("creative_music_disc", "game/creative", "Creative Music Disc", Rarity.RARE, "iron_golem"),
     UNDERWATER_DISC("underwater_music_disc", "game/water", "Underwater Music Disc", Rarity.RARE, "elder_guardian"),
     UNDERGROUND_DISC("underground_music_disc", "game", "Underground Music Disc", Rarity.RARE, "silverfish"),
-    DEEP_DARK_DISC("deep_dark_music_disc", "game", "Warden Music Disc", Rarity.RARE, "warden"),
+    DEEP_DARK_DISC("deep_dark_music_disc", "game", "Warden Music Disc", Rarity.EPIC, "warden"),
     NETHER_DISC("nether_music_disc", "game/nether", "Nether Music Disc", Rarity.RARE, "ghast"),
     ALT_NETHER_DISC("alt_nether_music_disc", "game/nether", "Nether Music Disc", Rarity.RARE, "piglin_brute"),
     END_DISC("end_music_disc", "game/end", "End Music Disc", Rarity.RARE, "shulker"),

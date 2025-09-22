@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "extra_discs:item/alt_nether_music_disc_chrysopoeia"
+  }
+}

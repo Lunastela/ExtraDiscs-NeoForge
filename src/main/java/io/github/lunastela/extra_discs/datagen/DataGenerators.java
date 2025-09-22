@@ -67,6 +67,7 @@ public class DataGenerators {
                     tag(ExtraDiscs.typedRecordHolderList.get(i).discType().itemTag).add(ExtraDiscs.typedRecordHolderList.get(i).registryObject().get());
                     tag(MUSIC_DISC_TAG).add(ExtraDiscs.typedRecordHolderList.get(i).registryObject().get());
                 }
+                tag(MUSIC_DISC_TAG).add(ExtraDiscs.CREATOR_REMIX.get());
             }
         });
 
@@ -74,8 +75,15 @@ public class DataGenerators {
             @Override
             protected void addTranslations() {
                 for (DiscType discType : DiscType.values())
-                    add("item." + ExtraDiscs.MODID + "." + discType.label + ".name", discType.englishLiteral);
+                    add("item." + ExtraDiscs.MODID + "." + discType.label, discType.englishLiteral);
                 add("item." + ExtraDiscs.MODID + ".oreo", "Oreo");
+                add("item." + ExtraDiscs.MODID + ".oreo.desc", "Are these really Oreos...?");
+
+                add("item." + ExtraDiscs.MODID + ".music_disc_creator_remix", "Music Disc");
+                add("item." + ExtraDiscs.MODID + ".music_disc_creator_remix.desc", "Noteblock, Jonny Atma & Dom Palombi - Creator (Remix)");
+
+                add(ExtraDiscs.MODID + ".configuration.disc_eleven_drop", "Disc 11 Drop Enabled");
+                add(ExtraDiscs.MODID + ".configuration.disc_eleven_drop_rate", "Disc 11 Drop Rate");
 
                 for (int i = 0; i < ExtraDiscs.typedRecordHolderList.size(); i++) {
                     TypedRecordHolder recordHolder = ExtraDiscs.typedRecordHolderList.get(i);
@@ -93,7 +101,11 @@ public class DataGenerators {
                         + (recordHolder.appender() == null ? "" : ("/" + recordHolder.appender())) + "/" + recordHolder.discName())).stream();
                     add(ResourceLocation.fromNamespaceAndPath(ExtraDiscs.MODID, recordHolder.discName()), SoundDefinition.definition().with(recordSound));
                 }
-            } 
+                add(ResourceLocation.fromNamespaceAndPath(ExtraDiscs.MODID, "oreo"), SoundDefinition.definition().with(
+                    sound(ResourceLocation.fromNamespaceAndPath(ExtraDiscs.MODID, "oreo")).stream()));
+                add(ResourceLocation.fromNamespaceAndPath(ExtraDiscs.MODID, "creator_remix"), SoundDefinition.definition().with(
+                    sound(ResourceLocation.fromNamespaceAndPath(ExtraDiscs.MODID, "creator_remix")).stream()));
+            }
         });
 
         RegistrySetBuilder jukeboxSongBuilder = new RegistrySetBuilder();

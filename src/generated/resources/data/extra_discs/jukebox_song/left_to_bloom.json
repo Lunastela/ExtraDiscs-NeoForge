@@ -1,0 +1,8 @@
+{
+  "comparator_output": 1,
+  "description": {
+    "translate": "item.extra_discs.underground_music_disc_left_to_bloom.desc"
+  },
+  "length_in_seconds": 342.0,
+  "sound_event": "extra_discs:left_to_bloom"
+}
