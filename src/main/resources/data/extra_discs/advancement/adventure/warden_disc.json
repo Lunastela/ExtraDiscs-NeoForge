@@ -1,0 +1,39 @@
+{
+    "parent": "minecraft:adventure/root",
+    "criteria": {
+        "warden_disc": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": "extra_discs:deep_dark_music_disc_ancestry"
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "display": {
+        "description": {
+            "translate": "advancements.extra_discs.warden_disc.description",
+            "fallback": "I won't apologize. (Obtain a music disc from the Warden)"
+        },
+        "frame": "challenge",
+        "icon": {
+            "count": 1,
+            "id": "extra_discs:deep_dark_music_disc_ancestry"
+        },
+        "title": {
+            "translate": "advancements.extra_discs.warden_disc.title",
+            "fallback": "I Don't Feel Any Shame"
+        }
+    },
+    "requirements": [
+        [
+            "warden_disc"
+        ]
+    ],
+    "rewards": {
+        "experience": 100
+    },
+    "sends_telemetry_event": true
+}
